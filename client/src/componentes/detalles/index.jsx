@@ -38,7 +38,7 @@ export default function Detail() {
                     Object.keys(detail).length > 0 ?
                         <div >
                             <div >
-                                <img className={styles.img} src={detail[0].imagen} alt={"image not found"} />
+                                <img className={styles.img} src={detail[0].imagen} alt={"imagen no encontrada"} />
                             </div>
                             <div >
                                 <li>

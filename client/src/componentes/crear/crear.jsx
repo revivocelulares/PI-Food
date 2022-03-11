@@ -13,18 +13,14 @@ export default function Crear() {
     const history = useHistory();
     const todasLasDietas = useSelector((state) => state.dietas);
     const allRecipes = useSelector((state) => state.recetas);
-    console.log(todasLasDietas)
-
-
-
 
     const [errors, seterrors] = useState({});
 
     const [input, setinput] = useState({
         nombre: '',
         resumen: '',
-        puntuacion: '',
-        nivel_de_comida_saludable: '',
+        puntuacion: 0,
+        nivel_de_comida_saludable: 0,
         imagen: '',
         paso_a_paso: '',
         dieta: []
@@ -167,8 +163,8 @@ export default function Crear() {
                 <Formulario name="Nombre" type="text" value={input.nombre} handle_function={handle_input_change} error_control={errors} />
                 <Formulario name="Imagen" type="url" value={input.imagen} handle_function={handle_input_change} error_control={errors} />
                 {/* <Formulario name="Resumen" type="text" value={input.resumen} handle_function={handle_input_change} error_control={errors} /> */}
-                <Formulario name="Puntuacion" type="number" value={input.puntuacion} handle_function={handle_input_change} error_control={errors} />
-                <Formulario name="Nivel de comida saludable" type="number" value={input.nivel_de_comida_saludable} handle_function={handle_input_change} error_control={errors} />
+                <Formulario name="puntuacion" type="number" value={input.puntuacion} handle_function={handle_input_change} error_control={errors} />
+                <Formulario name="nivel_de_comida_saludable" type="number" value={input.nivel_de_comida_saludable} handle_function={handle_input_change} error_control={errors} />
                 <div>
                     <label>Resumen del plato:</label>
                     <textarea name="resumen" rows="1" cols="40"  onChange={handle_input_change}>{input.resumen}</textarea>

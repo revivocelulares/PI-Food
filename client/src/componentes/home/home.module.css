@@ -27,13 +27,12 @@
 }
 
 
-.pokemons_box{
-    width: 100%;
+.recipes_box{
+    height: 100vh;
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-around;
     background-color:rgba(240, 248, 255, 0.171);
-
 }
 
 .btn{

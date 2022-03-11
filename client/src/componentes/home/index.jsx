@@ -125,7 +125,7 @@ export default function Home() {
                 {<NavBar setPage={setCurrentPage} />}
             </div>
 
-            {  <div className={styles.pokemons_box}>
+            {  <div className={styles.recipes_box}>
                 {recetasActuales?.map(el => {
                     return (
                         <div key={el.id}>

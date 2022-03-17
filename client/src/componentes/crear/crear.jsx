@@ -94,11 +94,11 @@ export default function Crear() {
         if (!input.nombre) {
             errors.nombre = "Nombre requerido";
         }
-        if (input.puntuacion < 0) {
-            errors.puntuacion = "puntuacion No puede ser negativo";
+        if (input.puntuacion < 0 || input.puntuacion > 100) {
+            errors.puntuacion = "puntuacion No puede ser negativo o mayor a 100";
         }
-        if (input.nivel_de_comida_saludable < 0) {
-            errors.nivel_de_comida_saludable = "nivel_de_comida_saludable No puede ser negativo";
+        if (input.nivel_de_comida_saludable < 0 || input.nivel_de_comida_saludable > 100) {
+            errors.nivel_de_comida_saludable = "nivel_de_comida_saludable No puede ser negativo o mayor a 100";
         }
 
         if (input.imagen !== "" && !/^(ftp|http|https):\/\/[^ "]+$/.test(input.imagen)) {
@@ -162,18 +162,17 @@ export default function Crear() {
             <form className={style.form}>
                 <Formulario name="Nombre" type="text" value={input.nombre} handle_function={handle_input_change} error_control={errors} />
                 <Formulario name="Imagen" type="url" value={input.imagen} handle_function={handle_input_change} error_control={errors} />
-                {/* <Formulario name="Resumen" type="text" value={input.resumen} handle_function={handle_input_change} error_control={errors} /> */}
                 <Formulario name="puntuacion" type="number" value={input.puntuacion} handle_function={handle_input_change} error_control={errors} />
                 <Formulario name="nivel_de_comida_saludable" type="number" value={input.nivel_de_comida_saludable} handle_function={handle_input_change} error_control={errors} />
                 <div>
                     <label>Resumen del plato:</label>
-                    <textarea name="resumen" rows="1" cols="40"  onChange={handle_input_change}>{input.resumen}</textarea>
+                    <textarea name="resumen" value={input.resumen} rows="1" cols="40"  onChange={handle_input_change}>{input.resumen}</textarea>
 
                 </div>
 
                 <div>
                     <label>Instrucciones:</label>
-                    <textarea name="paso_a_paso" rows="1" cols="40" onChange={handle_input_change}>{input.paso_a_paso}</textarea>
+                    <textarea name="paso_a_paso" value={input.paso_a_paso} rows="1" cols="40" onChange={handle_input_change}>{input.paso_a_paso}</textarea>
 
                 </div>
                 {errors.paso_a_paso ? <span className={style.error}>{errors.paso_a_paso}</span> : ""}

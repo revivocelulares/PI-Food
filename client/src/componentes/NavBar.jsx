@@ -17,9 +17,13 @@ export default function NavBar({setPage}){
 
     function handleOnSubmit(e){
         e.preventDefault();
+        if(!input){
+          alert('Ingrese el nombre de la receta')
+        } else {
         dispatch(getRecetas_por_nombre(input))
         setInput('');
         setPage(1);
+      }
     }
 
     return <form onSubmit={handleOnSubmit}>

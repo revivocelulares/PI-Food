@@ -11,7 +11,6 @@ export default function Detail() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-
     const detail = useSelector((state) => state.detalles);
 
 

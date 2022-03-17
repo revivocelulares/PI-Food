@@ -14,7 +14,6 @@ router.post('/recipes', async (req, res, next) =>{
             nivel_de_comida_saludable,
             paso_a_paso,
             imagen,
-            // createdInDb,
             dieta
         } = req.body;
         console.log(dieta)
@@ -26,10 +25,9 @@ router.post('/recipes', async (req, res, next) =>{
             nivel_de_comida_saludable: nivel_de_comida_saludable,
             paso_a_paso: paso_a_paso,
             imagen: imagen
-            // createdInDb: createdInDb
         })
-        
-        
+
+
         let dietDb = await Dieta.findAll({
             where: {name: dieta}
         })
@@ -40,6 +38,6 @@ router.post('/recipes', async (req, res, next) =>{
         console.log(error)
         next(error);
     }
-   
+
 })
 module.exports = router;
